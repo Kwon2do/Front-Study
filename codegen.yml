@@ -1,0 +1,11 @@
+schema: http://backend-practice.codebootcamp.co.kr/graphql
+documents: "./pages/**/*.{tsx,ts}"
+generates:
+  ./src/commons/types/generated/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
+      typesPrefix: I
