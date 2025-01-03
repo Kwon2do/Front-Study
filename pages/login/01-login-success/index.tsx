@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
 import type { IQuery } from "@/commons/types/generated/types";
+import { JSX } from "react";
 const FETCH_USER_LOGED_IN = gql`
   query fetchUserLoggedIn {
     fetchUserLoggedIn {
