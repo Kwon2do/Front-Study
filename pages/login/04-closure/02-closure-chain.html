@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>클로저 실습</title>
+    <script>
+        function aaa() {
+            const apple = 10;
+            //bbb 실행 컨텍스트에서는 banana와 ccc함수가 호이스팅됨
+            //ccc함수 내부에 있는 cherry까지 한방에 다 끌어올리는 개념이 아님!!
+            function bbb() {
+                const banana = 20;
+                console.log(banana);
+                console.log(apple);
+                console.log(qqq);
+                //ccc 실행 컨텍스트에서는 cherry가 호이스팅됨
+                function ccc() {
+                    const cherry = 30;
+                    console.log(cherry);
+                    console.log(banana);
+                    console.log(apple);
+                    console.log(qqq);
+                }
+                ccc();
+            }
+            const qqq = 3;
+            bbb();
+        }
+        aaa();
+    </script>
+</head>
+<body>
+</body>
+</html>

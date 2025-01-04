@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>클로저 실습</title>
+    <script>
+        /*
+        렉시컬 스코프: 함수가 선언된 위치를 기준으로 변수 접근 범위가 결정된 스코프
+	    클로저: 렉시컬 스코프를 활용하여 외부 함수의 변수를 기억하고 사용할 수 있는 메커니즘
+        => 클로저는 렉시컬 스코프의 특성을 이용하여 외부 함수의 변수에 접근하고 유지하는 것
+        */
+        // aaa 함수 선언
+        function aaa() { 
+            // apple 변수 선언 및 초기화
+            const apple = 10; 
+            // apple은 블록 스코프를 가지며, 호이스팅은 되지만 TDZ(Temporal Dead Zone)에 의해 초기화 전에 접근 불가
+
+            // bbb 함수 선언 (aaa 내부에 정의된 함수)
+            function bbb() { 
+                // banana 변수 선언 및 초기화
+                const banana = 20; 
+                // banana도 블록 스코프를 가지며 호이스팅은 되지만 TDZ로 인해 초기화 전 접근 불가
+
+                console.log(banana); // 20 출력
+                console.log(apple);  // 10 출력
+                // bbb 함수는 외부 스코프(aaa 함수의 스코프)에 접근 가능 => 클로저
+            }
+
+            // qqq 변수 선언 및 초기화
+            const qqq = 30; 
+            // qqq도 블록 스코프를 가지며 bbb 내부에서는 접근할 수 없음 (클로저의 범위는 bbb가 정의된 시점 기준)
+            
+            bbb(); // bbb 함수 호출
+        }
+
+        aaa();
+    </script>
+</head>
+<body>
+</body>
+</html>
